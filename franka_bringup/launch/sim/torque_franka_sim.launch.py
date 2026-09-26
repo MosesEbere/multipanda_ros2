@@ -91,7 +91,7 @@ def generate_launch_description():
 
     # Others
     rviz_file = os.path.join(get_package_share_directory('franka_description'), 'rviz',
-                             'visualize_franka.rviz')
+                             'spatialcbf_vis.rviz')
     
 
     return LaunchDescription([
