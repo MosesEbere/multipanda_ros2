@@ -1,0 +1,65 @@
+mujoco_server:
+  ros__parameters:
+    MujocoPlugins:
+      names:
+        - mujoco_ros2_control
+      mujoco_ros2_control:
+        type: mujoco_ros2_control::MujocoRos2ControlPlugin
+        hardware:
+          type: mujoco_ros_control/RobotHW
+          control_period: 0.001
+        params:
+          namespace: ""
+          robot_description_node: "robot_state_publisher"
+          robot_description: "robot_description"
+
+controller_manager:
+    ros__parameters:
+      update_rate: 1000
+      joint_state_broadcaster:
+        type: joint_state_broadcaster/JointStateBroadcaster
+
+      panda_sim_velocity_controller:
+        type: velocity_controllers/JointGroupVelocityController
+
+      panda_sim_effort_controller:
+        type: effort_controllers/JointGroupEffortController
+
+panda_sim_velocity_controller:
+  ros__parameters:
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    # command_interfaces:
+    #   - effort
+    # state_interfaces:
+    #   - position
+    #   - velocity
+    #   - effort
+
+panda_sim_effort_controller:
+  ros__parameters:
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+
+# gripper_position_controller:
+#   ros__parameters:
+#     joints:
+#       - panda_finger_joint1

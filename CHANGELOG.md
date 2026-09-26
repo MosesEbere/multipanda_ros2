@@ -1,5 +1,9 @@
 # Changelog
 
+## Added 26.09.2026
+* Make `libfranka` dependency explicit in the `package.xml` of requiring packages. 
+* Add direct velocity and effort controllers.
+
 ## Added 25.09.2026
 * Added mass and inertia information to the Panda robot in `franka_description`. These are required for dynamics-based nominal controllers. 
 * Changed MuJoCo simulation options to prevent contact slipping for grasping objects (most important additions: sliding friction, elliptic cone, and enable multiccd).
